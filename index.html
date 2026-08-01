@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AuraHealth — AI-powered longitudinal wellness tracking. Log meals, sleep, activity & mood. Get real Gemini AI-backed insights reviewed by an evidence-based health agent.">
+  <title>AuraHealth — Longitudinal Wellness & AI Review Agent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/css/styles.css">
+  <link rel="stylesheet" href="./src/css/landing.css">
+  <link rel="stylesheet" href="./src/css/landing-enhanced.css">
+</head>
+<body>
+
+<!-- Gemini API Status Bar (shows when API key is configured)
+<div class="gemini-status-bar" id="gemini-status-bar">
+  <div class="gsb-dot"></div>
+  ✨ Google Gemini 2.5 Flash — Connected & Ready for Live AI Analysis
+  <span style="color: rgba(255,255,255,0.35); font-weight:400; font-size:11px;">Key active in local session</span>
+</div> -->
+
+<!-- Toast Notification Container -->
+<div id="toast-container"></div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SCREEN 1: LANDING PAGE
+════════════════════════════════════════════════════════════ -->
+<div id="screen-landing" class="screen active">
+
+  <!-- Nav -->
+  <nav class="land-nav">
+    <div class="land-nav-brand">
+      <div class="land-brand-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      </div>
+      <span class="land-brand-name">AuraHealth</span>
+      <span class="nav-gemini-badge" title="Google Gemini 2.5 Flash Engine Active">
+        <span class="gemini-sparkle">✨</span> Gemini AI
+      </span>
+    </div>
+    <div class="land-nav-links">
+      <a href="#features" class="land-nav-link">Features</a>
+      <a href="#ai-playground" class="land-nav-link">Gemini AI Demo</a>
+      <a href="#fact-vs-hypothesis" class="land-nav-link">Fact vs AI</a>
+      <a href="#how-it-works" class="land-nav-link">How It Works</a>
+      <a href="#safety" class="land-nav-link">Safety</a>
+      <a href="#evidence" class="land-nav-link">Evidence</a>
+      <button class="btn btn-ghost land-login-btn" id="btn-goto-login">Sign In</button>
+      <button class="btn btn-primary land-cta-nav" id="btn-goto-signup-nav">Get Started Free</button>
+    </div>
+  </nav>
+
+  <!-- Animated Ticker Marquee -->
+  <div class="landing-ticker">
+    <div class="ticker-inner" id="ticker-inner">
+      <!-- ticker items duplicated for seamless loop -->
+      <span class="ticker-item"><span class="ticker-dot"></span>✨ Gemini 2.5 Flash AI Engine</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>📊 100% Deterministic Summaries</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>🛡️ Medical Safety Guardrails Active</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>🔬 Peer-Reviewed Evidence Citations</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>📋 Fact vs AI Hypothesis Separation</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>✅ User-Approved Plan Changes Only</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>🧪 Longitudinal 14-Day Analysis</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>🔒 Data Stays in Your Browser</span>
+      <!-- Duplicate for seamless loop -->
+      <span class="ticker-item"><span class="ticker-dot"></span>✨ Gemini 2.5 Flash AI Engine</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>📊 100% Deterministic Summaries</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>🛡️ Medical Safety Guardrails Active</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>🔬 Peer-Reviewed Evidence Citations</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>📋 Fact vs AI Hypothesis Separation</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>✅ User-Approved Plan Changes Only</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>🧪 Longitudinal 14-Day Analysis</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>🔒 Data Stays in Your Browser</span>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+    <div class="hero-glow hero-glow-3"></div>
+
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span>✨ Powered by <strong>Google Gemini AI</strong> & Evidence-Based Science</span>
+        </div>
+
+        <h1 class="hero-title">
+          Your Health,<br>
+          <span class="hero-gradient-text">Longitudinally Reviewed</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Log meals, sleep, weight & mood. Our AI agent reviews your historical trends with <strong>Google Gemini</strong>,
+          separates empirical facts from AI hypotheses, and delivers evidence-backed insights — never diagnoses.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary btn-hero" id="btn-goto-signup-hero">
+            Start Your Health Journey
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </button>
+          <button class="btn btn-ghost btn-hero-ghost" id="btn-scroll-playground">
+            ⚡ Try Gemini AI Live
+          </button>
+          <button class="btn btn-ghost btn-hero-ghost" id="btn-demo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/><path d="M10 8l6 4-6 4V8z"/></svg>
+            View Full App Demo
+          </button>
+        </div>
+
+        <div class="hero-trust-row">
+          <div class="trust-stat"><span class="trust-num">14-Day</span><span class="trust-label">Historical Analysis</span></div>
+          <div class="trust-divider"></div>
+          <div class="trust-stat"><span class="trust-num">100%</span><span class="trust-label">Fact Separation</span></div>
+          <div class="trust-divider"></div>
+          <div class="trust-stat"><span class="trust-num">Gemini 2.5</span><span class="trust-label">Live AI Intelligence</span></div>
+          <div class="trust-divider"></div>
+          <div class="trust-stat"><span class="trust-num">5+</span><span class="trust-label">Safety Guardrails</span></div>
+          <div class="trust-divider"></div>
+          <div class="trust-stat"><span class="trust-num">0</span><span class="trust-label">Medical Claims Made</span></div>
+        </div>
+      </div>
+
+      <!-- Hero Dashboard Preview -->
+      <div class="hero-preview">
+        <div class="preview-card preview-card-main">
+          <div class="preview-header">
+            <span class="preview-dot green"></span>
+            <span class="preview-label">7-Day Deterministic Summary</span>
+            <span class="preview-badge">Live Data</span>
+          </div>
+          <div class="preview-stats">
+            <div class="preview-stat-item"><span class="psi-val">2,043</span><span class="psi-label">Avg Calories</span></div>
+            <div class="preview-stat-item"><span class="psi-val">7.4h</span><span class="psi-label">Avg Sleep</span></div>
+            <div class="preview-stat-item"><span class="psi-val">-0.3kg</span><span class="psi-label">Wt Velocity/wk</span></div>
+          </div>
+          <div class="preview-bar-row">
+            <div class="preview-bar" style="height: 60%"></div>
+            <div class="preview-bar" style="height: 75%"></div>
+            <div class="preview-bar" style="height: 55%"></div>
+            <div class="preview-bar" style="height: 80%"></div>
+            <div class="preview-bar" style="height: 70%"></div>
+            <div class="preview-bar" style="height: 65%"></div>
+            <div class="preview-bar active" style="height: 85%"></div>
+          </div>
+        </div>
+        <div class="preview-card preview-card-ai">
+          <div class="preview-ai-icon">✨</div>
+          <div class="preview-ai-text">
+            <div class="preview-ai-title">Gemini AI Agent Hypothesis</div>
+            <div class="preview-ai-msg">"Sleep average of 7.4 hrs is below the 7-9 hr biological threshold. This <em>may</em> correlate with lower energy scores."</div>
+            <span class="preview-ai-src">📚 Consensus Panel (2015)</span>
+          </div>
+        </div>
+        <div class="preview-card preview-card-plan">
+          <div class="preview-plan-label">Versioned Plan v1.1 Proposal</div>
+          <div class="preview-plan-targets">
+            <span>🔥 2,050 kcal</span><span>😴 8h sleep</span><span>🏃 45m</span>
+          </div>
+          <div class="preview-approval-row">
+            <button class="preview-btn-approve" onclick="alert('In full app: This approves the plan change!')">✓ Approve Adjustment</button>
+            <button class="preview-btn-reject" onclick="alert('In full app: Keeps current plan intact!')">✕ Reject</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTERACTIVE GEMINI AI PLAYGROUND SECTION
+  ════════════════════════════════════════════════════════════ -->
+  <section class="playground-section" id="ai-playground">
+    <div class="playground-container">
+      <div class="section-label">Live Interactive Experience</div>
+      <h2 class="section-title">Test Gemini AI Intelligence Right Now</h2>
+      <p class="section-subtitle">No signup required. Try natural language meal macro parsing and real-time AI wellness agent reasoning below.</p>
+
+      <div class="pg-tabs">
+        <button class="pg-tab active" id="pg-tab-estimator">
+          <span class="pg-tab-icon">🥗</span>
+          <span>AI Meal Macro Parser</span>
+        </button>
+        <button class="pg-tab" id="pg-tab-agent">
+          <span class="pg-tab-icon">🤖</span>
+          <span>AI Agent & Guardrails Sandbox</span>
+        </button>
+      </div>
+
+      <!-- PLAYGROUND TAB 1: MEAL PARSER -->
+      <div id="pg-content-estimator" class="pg-content-panel active">
+        <div class="pg-panel-grid">
+          <div class="pg-input-box">
+            <label class="pg-label">Describe your meal in natural language:</label>
+            <div class="pg-input-group">
+              <input type="text" id="pg-meal-input" class="pg-text-input" placeholder="e.g. 2 poached eggs on sourdough toast with avocado & coffee" value="2 poached eggs on sourdough toast with avocado and black coffee">
+              <button class="btn btn-primary pg-submit-btn" id="pg-btn-estimate">
+                <span>⚡ Parse with Gemini AI</span>
+              </button>
+            </div>
+
+            <div class="pg-presets-label">Try quick preset examples:</div>
+            <div class="pg-presets-row">
+              <button class="pg-preset-chip" data-meal="🥑 Avocado toast with 2 poached eggs and black coffee">🥑 Avocado Toast & Eggs</button>
+              <button class="pg-preset-chip" data-meal="🍗 200g grilled chicken breast with quinoa and steamed broccoli">🍗 Chicken & Quinoa</button>
+              <button class="pg-preset-chip" data-meal="🥤 Whey protein shake with 1 banana, oats and peanut butter">🥤 Protein Shake & Oat</button>
+              <button class="pg-preset-chip" data-meal="🍕 2 slices of pepperoni pizza and a diet soda">🍕 2 Slices Pizza</button>
+            </div>
+          </div>
+
+          <div class="pg-output-box" id="pg-meal-output">
+            <div class="pg-card-header">
+              <div class="pg-card-title">Estimated Nutritional Breakdown</div>
+              <div class="pg-badge-engine" id="pg-meal-engine-badge">✨ Gemini AI Powered</div>
+            </div>
+
+            <div class="pg-macro-hero">
+              <div class="pg-macro-hero-val" id="pg-meal-calories">415</div>
+              <div class="pg-macro-hero-unit">kcal total</div>
+            </div>
+
+            <div class="pg-macros-grid">
+              <div class="pg-macro-item">
+                <span class="pg-macro-name">Protein</span>
+                <span class="pg-macro-val" id="pg-meal-protein">18g</span>
+                <div class="pg-bar-track"><div class="pg-bar-fill protein" id="pg-bar-protein" style="width: 45%;"></div></div>
+              </div>
+              <div class="pg-macro-item">
+                <span class="pg-macro-name">Carbs</span>
+                <span class="pg-macro-val" id="pg-meal-carbs">32g</span>
+                <div class="pg-bar-track"><div class="pg-bar-fill carbs" id="pg-bar-carbs" style="width: 55%;"></div></div>
+              </div>
+              <div class="pg-macro-item">
+                <span class="pg-macro-name">Fat</span>
+                <span class="pg-macro-val" id="pg-meal-fat">21g</span>
+                <div class="pg-bar-track"><div class="pg-bar-fill fat" id="pg-bar-fat" style="width: 65%;"></div></div>
+              </div>
+            </div>
+
+            <div class="pg-advice-card">
+              <div class="pg-advice-icon">💡</div>
+              <div class="pg-advice-text" id="pg-meal-advice">
+                "High quality protein from eggs combined with healthy monounsaturated fats from avocado. Great sustained energy profile!"
+              </div>
+            </div>
+
+            <div class="pg-confidence-row">
+              <span class="pg-conf-label">Confidence Score:</span>
+              <span class="pg-conf-badge" id="pg-meal-confidence">92% High Confidence</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PLAYGROUND TAB 2: AI AGENT SANDBOX -->
+      <div id="pg-content-agent" class="pg-content-panel" style="display:none;">
+        <div class="pg-panel-grid">
+          <div class="pg-input-box">
+            <label class="pg-label">Ask the AI Wellness Agent a question or command:</label>
+            <div class="pg-input-group">
+              <input type="text" id="pg-agent-input" class="pg-text-input" placeholder="e.g. How does 7+ hours of sleep impact weight loss velocity?" value="How does 7+ hours of sleep impact weight loss velocity?">
+              <button class="btn btn-primary pg-submit-btn" id="pg-btn-ask-agent">
+                <span>🤖 Query Agent</span>
+              </button>
+            </div>
+
+            <div class="pg-presets-label">Click prompts to test reasoning & safety guardrails:</div>
+            <div class="pg-presets-row flex-col">
+              <button class="pg-preset-prompt" data-query="How does 7+ hours of sleep affect weight loss velocity and muscle recovery?">
+                <span class="chip-tag success">AI Guidance</span> "How does sleep affect weight loss velocity?"
+              </button>
+              <button class="pg-preset-prompt" data-query="Can you diagnose why I have severe headaches and prescribe medicine?">
+                <span class="chip-tag warning">Guardrail Test</span> "Diagnose my headache and prescribe medicine" 🛑
+              </button>
+              <button class="pg-preset-prompt" data-query="I want to drop my calories to 750 kcal per day to lose weight quickly.">
+                <span class="chip-tag danger">Guardrail Test</span> "Drop daily calories to 750 kcal/day" ⚠️
+              </button>
+              <button class="pg-preset-prompt" data-query="Can you guarantee I will lose 5kg in 7 days with this plan?">
+                <span class="chip-tag info">Disclaimer Test</span> "Guarantee 5kg weight loss in 1 week" ⚠️
+              </button>
+            </div>
+          </div>
+
+          <div class="pg-output-box" id="pg-agent-output">
+            <div class="pg-card-header">
+              <div class="pg-card-title">AI Agent Response & Safety Audit</div>
+              <div class="pg-badge-engine" id="pg-agent-status-badge">✨ Gemini AI Response</div>
+            </div>
+
+            <div class="pg-agent-response-body" id="pg-agent-response-text">
+              Based on curated research from <strong>Joint Consensus Statement on Sleep Duration</strong> (Consensus Panel 2015):<br><br>
+              Adults sleeping under 7 hours per night display altered ghrelin/leptin ratios and impaired muscle protein synthesis. Maintaining 7-9 hours supports fat oxidation while preserving lean mass.
+            </div>
+
+            <div class="pg-evidence-badge-box" id="pg-agent-citation-box">
+              <span class="pg-citation-icon">📚</span>
+              <span id="pg-agent-citation-text">Citation: Sleep Research Society & AASM Consensus Panel (2015)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FACT VS HYPOTHESIS COMPARISON SHOWCASE
+  ════════════════════════════════════════════════════════════ -->
+  <section class="fact-hypo-section" id="fact-vs-hypothesis">
+    <div class="section-label">Core Architecture</div>
+    <h2 class="section-title">Strict Separation of Facts & AI Hypotheses</h2>
+    <p class="section-subtitle">Most AI health apps mix hallucinated guesses with real data. AuraHealth enforces zero-ambiguity transparency.</p>
+
+    <div class="fact-hypo-grid">
+      <!-- FACTS CARD -->
+      <div class="fh-card fh-facts">
+        <div class="fh-card-badge facts-badge">📊 100% Empirical Facts</div>
+        <h3>Recorded Data (Deterministic)</h3>
+        <p class="fh-desc">Exact metrics computed by standard math rules — zero AI hallucination possible.</p>
+        <ul class="fh-list">
+          <li><span class="fh-check">✓</span> <span><strong>Logged Intake:</strong> 2,043 kcal average over 7 days</span></li>
+          <li><span class="fh-check">✓</span> <span><strong>Logged Sleep:</strong> 7.4 hours daily average</span></li>
+          <li><span class="fh-check">✓</span> <span><strong>Weight Shift:</strong> -0.3 kg (-0.3 kg/wk velocity)</span></li>
+          <li><span class="fh-check">✓</span> <span><strong>Completeness:</strong> 100% complete logs (7/7 days)</span></li>
+          <li><span class="fh-check">✓</span> <span><strong>Anomaly Flag:</strong> None detected</span></li>
+        </ul>
+      </div>
+
+      <!-- HYPOTHESIS CARD -->
+      <div class="fh-card fh-hypo">
+        <div class="fh-card-badge hypo-badge">✨ AI Hypothesis (Gemini)</div>
+        <h3>Agent Interpretation & Plan Tweaks</h3>
+        <p class="fh-desc">Evidence-backed correlations demarcated as hypotheses. <strong>Requires your explicit approval.</strong></p>
+        <ul class="fh-list">
+          <li><span class="fh-sparkle">✨</span> <span><strong>Sleep Insight:</strong> 7.4h sleep is below 7-9h threshold; <em>may</em> impact recovery.</span></li>
+          <li><span class="fh-sparkle">✨</span> <span><strong>Evidence Link:</strong> Cited from Consensus Panel (2015).</span></li>
+          <li><span class="fh-sparkle">✨</span> <span><strong>Proposed Tweak:</strong> +10m activity daily (Not active until approved).</span></li>
+          <li><span class="fh-sparkle">✨</span> <span><strong>Version Control:</strong> Immutably saved as Plan v1.1 proposal.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features-section" id="features">
+    <div class="section-label">Core Capabilities</div>
+    <h2 class="section-title">Everything your wellness journey needs</h2>
+    <p class="section-subtitle">Built for longitudinal tracking — not just daily snapshots.</p>
+
+    <div class="features-grid">
+      <div class="feature-card feature-card-lg">
+        <div class="feature-icon-wrap" style="background: rgba(99,102,241,0.15);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+        </div>
+        <h3>Gemini AI Review Agent</h3>
+        <p>Longitudinal trend analysis powered by Google Gemini that separates recorded <strong>facts</strong> from AI <strong>hypotheses</strong>. Every insight is traceable to scientific citations.</p>
+        <ul class="feature-bullets">
+          <li>✓ Fact vs Interpretation separation</li>
+          <li>✓ Evidence-backed citations</li>
+          <li>✓ User-approval required for plan changes</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-wrap" style="background: rgba(6,182,212,0.12);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="M12 2v20"/><path d="m17 5-9.5 7h5.5l-5 8"/></svg>
+        </div>
+        <h3>AI Meal Estimator</h3>
+        <p>Describe meals in natural language. Gemini AI parses macros with confidence scoring — you can override anytime with one click.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-wrap" style="background: rgba(16,185,129,0.12);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Deterministic Summaries</h3>
+        <p>100% rule-based weekly & monthly calculations. No AI guesswork — exact averages, weight velocity, completeness metrics, and anomaly flags.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-wrap" style="background: rgba(245,158,11,0.12);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </div>
+        <h3>Versioned Goals</h3>
+        <p>Every plan adjustment requires your explicit approval. Previous versions are immutably preserved — full history always accessible.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-wrap" style="background: rgba(139,92,246,0.12);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+        </div>
+        <h3>Complete Audit Trail</h3>
+        <p>AI uncertainty scores, user corrections, rejected recommendations, guardrail triggers — everything is logged and inspectable.</p>
+      </div>
+
+      <!-- <div class="feature-card feature-card-safety">
+        <div class="feature-icon-wrap" style="background: rgba(244,63,94,0.12);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Medical Safety Guardrails</h3>
+        <p>Hard boundaries prevent diagnosis, prescription, and unsafe caloric restriction. AuraHealth is a wellness tool — never a replacement for medical care.</p>
+      </div> -->
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SCIENTIFIC EVIDENCE LIBRARY SHOWCASE
+  ════════════════════════════════════════════════════════════ -->
+  <section class="evidence-section" id="evidence">
+    <div class="section-label">Peer-Reviewed Research</div>
+    <h2 class="section-title">Grounded in Scientific Literature</h2>
+    <p class="section-subtitle">Our Gemini AI agent does not generate unverified claims. All interpretations reference peer-reviewed research.</p>
+
+    <div class="evidence-grid">
+      <div class="evidence-card">
+        <div class="ev-tag">Energy Balance</div>
+        <h4>Hall KD et al. (2012)</h4>
+        <div class="ev-journal">International Journal of Obesity</div>
+        <p>"Quantifying the effect of energy imbalance on body weight. Weight loss velocity exceeding 0.75 kg/wk increases muscle catabolism."</p>
+      </div>
+      <div class="evidence-card">
+        <div class="ev-tag">Sleep Hygiene</div>
+        <h4>Consensus Panel (2015)</h4>
+        <div class="ev-journal">Journal of Clinical Sleep Medicine</div>
+        <p>"Recommended amount of sleep for a healthy adult: 7-9 hours per night to support metabolic health and cognitive function."</p>
+      </div>
+      <div class="evidence-card">
+        <div class="ev-tag">Nutrition</div>
+        <h4>Leidy HJ et al. (2015)</h4>
+        <div class="ev-journal">American Journal of Clinical Nutrition</div>
+        <p>"The role of protein in weight loss and maintenance. Progressive caloric adjustments prevent sudden satiety disruption."</p>
+      </div>
+      <div class="evidence-card">
+        <div class="ev-tag">Activity</div>
+        <h4>Garber CE et al. (2011)</h4>
+        <div class="ev-journal">Medicine & Science in Sports & Exercise</div>
+        <p>"Quantity and Quality of Exercise for Developing and Maintaining Fitness in Healthy Adults (≥150 min/wk moderate activity)."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-section" id="how-it-works">
+    <div class="section-label">Workflow</div>
+    <h2 class="section-title">From data to insight in 4 steps</h2>
+    <div class="steps-row">
+      <div class="step-item">
+        <div class="step-number">01</div>
+        <h4>Log Daily</h4>
+        <p>Record meals, sleep, weight, activity & mood. Gemini AI estimates macros from text descriptions.</p>
+      </div>
+      <div class="step-arrow" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </div>
+      <div class="step-item">
+        <div class="step-number">02</div>
+        <h4>Detect Issues</h4>
+        <p>Deterministic engine flags missing data, anomalies, and inconsistencies in real time.</p>
+      </div>
+      <div class="step-arrow" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </div>
+      <div class="step-item">
+        <div class="step-number">03</div>
+        <h4>Gemini AI Reviews</h4>
+        <p>Agent analyzes trends, cites research, asks targeted questions, and suggests limited plan tweaks.</p>
+      </div>
+      <div class="step-arrow" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </div>
+      <div class="step-item">
+        <div class="step-number">04</div>
+        <h4>You Approve</h4>
+        <p>No plan change takes effect without your explicit approval. Rejected suggestions are archived.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Safety Notice -->
+  <section class="safety-section" id="safety">
+    <div class="safety-inner">
+      <div class="safety-icon">🛡️</div>
+      <h2>Designed with safety first</h2>
+      <p>AuraHealth will <strong>never</strong> diagnose medical conditions, prescribe treatment, or present recommendations as guaranteed outcomes. Caloric targets below 1,200 kcal/day are blocked by hard guardrails. Every insight is clearly labelled as a fact or an interpretation.</p>
+      <div class="safety-pills-row">
+        <span class="safety-pill">No medical diagnosis</span>
+        <span class="safety-pill">No prescriptions</span>
+        <span class="safety-pill">No guaranteed outcomes</span>
+        <span class="safety-pill">Unsafe intake blocked</span>
+        <span class="safety-pill">Full audit trail</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Footer -->
+  <section class="cta-section">
+    <div class="hero-glow cta-glow"></div>
+    <h2 class="cta-title">Ready to understand your health longitudinally?</h2>
+    <p class="cta-sub">Free to use. Powered by Gemini AI. Your data stays in your browser.</p>
+    <button class="btn btn-primary btn-hero" id="btn-goto-signup-cta">
+      Create Your Free Account
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </button>
+  </section>
+
+  <footer class="land-footer">
+    <div class="land-brand-icon" style="width:28px;height:28px;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+    </div>
+    <span style="color:var(--text-muted); font-size:13px;">© 2026 AuraHealth · Google Gemini AI Wellness Tool · Not Medical Advice</span>
+  </footer>
+
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SCREEN 2: AUTH (Login / Sign Up)
+════════════════════════════════════════════════════════════ -->
+<div id="screen-auth" class="screen">
+
+  <div class="auth-page">
+    <!-- Left Panel -->
+    <div class="auth-left">
+      <div class="auth-left-content">
+        <button class="auth-back-btn" id="btn-auth-back">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+          Back to Home
+        </button>
+        <div class="auth-brand">
+          <div class="land-brand-icon" style="width:48px;height:48px;border-radius:14px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <span class="land-brand-name" style="font-size:22px;">AuraHealth</span>
+        </div>
+        <h2 class="auth-left-title">Your personal AI wellness companion</h2>
+        <ul class="auth-left-bullets">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Evidence-backed AI insights with citations
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            100% deterministic summaries — no AI hallucinations
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Plan changes require your explicit approval
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Medical safety guardrails always active
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Your data stays private in your browser
+          </li>
+        </ul>
+      </div>
+      <div class="auth-left-decoration">
+        <div class="auth-deco-card">
+          <div class="auth-deco-row">
+            <span style="color:#10b981; font-weight:700;">📊 7-Day Report Ready</span>
+          </div>
+          <div style="font-size:12px; color:var(--text-secondary); margin-top:4px;">AI identified 2 facts, 1 pattern insight</div>
+        </div>
+        <div class="auth-deco-card" style="margin-top:10px; background: rgba(99,102,241,0.1); border-color: rgba(99,102,241,0.2);">
+          <div style="font-size:12px; font-weight:600;">💡 Plan v1.2 Proposed</div>
+          <div style="font-size:11px; color:var(--text-muted); margin-top:3px;">Awaiting your approval · Not yet active</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Panel — Form -->
+    <div class="auth-right">
+      <!-- Tab Toggle -->
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="tab-login-btn">Sign In</button>
+        <button class="auth-tab" id="tab-signup-btn">Create Account</button>
+      </div>
+
+      <!-- LOGIN FORM -->
+      <div id="auth-login-form" class="auth-form-panel">
+        <div class="auth-form-header">
+          <h3>Welcome back</h3>
+          <p>Sign in to continue your wellness journey</p>
+        </div>
+
+        <form id="form-login" class="auth-form" novalidate>
+          <div class="auth-field">
+            <label for="login-email">Email Address</label>
+            <div class="auth-input-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <input type="email" id="login-email" class="auth-input" placeholder="you@example.com" autocomplete="email" required>
+            </div>
+          </div>
+          <div class="auth-field">
+            <label for="login-password">Password</label>
+            <div class="auth-input-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <input type="password" id="login-password" class="auth-input" placeholder="Your password" autocomplete="current-password" required>
+              <button type="button" class="auth-pwd-toggle" data-target="login-password" title="Toggle visibility">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+          </div>
+          <div id="login-error" class="auth-error-msg" style="display:none;"></div>
+          <button type="submit" class="btn btn-primary auth-submit-btn" id="btn-login-submit">
+            <span>Sign In to AuraHealth</span>
+          </button>
+        </form>
+
+        <p class="auth-switch-text">Don't have an account? <button class="auth-link-btn" id="goto-signup-from-login">Create one free</button></p>
+      </div>
+
+      <!-- SIGN UP FORM -->
+      <div id="auth-signup-form" class="auth-form-panel" style="display:none;">
+        <div class="auth-form-header">
+          <h3>Create your account</h3>
+          <p>Set up your wellness profile to get started</p>
+        </div>
+
+        <form id="form-signup" class="auth-form" novalidate>
+          <div class="auth-fields-row">
+            <div class="auth-field">
+              <label for="signup-name">Full Name</label>
+              <div class="auth-input-wrap">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <input type="text" id="signup-name" class="auth-input" placeholder="Jane Smith" required>
+              </div>
+            </div>
+            <div class="auth-field">
+              <label for="signup-email">Email Address</label>
+              <div class="auth-input-wrap">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <input type="email" id="signup-email" class="auth-input" placeholder="you@example.com" autocomplete="email" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="auth-field">
+            <label for="signup-password">Password <span style="color:var(--text-muted); font-weight:400;">(min 6 characters)</span></label>
+            <div class="auth-input-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <input type="password" id="signup-password" class="auth-input" placeholder="Create a password" autocomplete="new-password" required>
+              <button type="button" class="auth-pwd-toggle" data-target="signup-password" title="Toggle visibility">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+            <div class="pwd-strength-bar"><div id="pwd-strength-fill" class="pwd-strength-fill"></div></div>
+          </div>
+
+          <!-- Optional Profile Fields -->
+          <div class="auth-profile-section">
+            <div class="auth-profile-toggle" id="toggle-profile-fields">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+              Optional: Add health profile for better AI insights
+            </div>
+            <div id="profile-fields" style="display:none;">
+              <div class="auth-fields-row" style="margin-top:12px;">
+                <div class="auth-field">
+                  <label for="signup-age">Age</label>
+                  <div class="auth-input-wrap"><input type="number" id="signup-age" class="auth-input" placeholder="32" min="13" max="110"></div>
+                </div>
+                <div class="auth-field">
+                  <label for="signup-gender">Gender</label>
+                  <div class="auth-input-wrap">
+                    <select id="signup-gender" class="auth-input auth-select">
+                      <option value="">Prefer not to say</option>
+                      <option value="female">Female</option>
+                      <option value="male">Male</option>
+                      <option value="non-binary">Non-binary</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="auth-fields-row">
+                <div class="auth-field">
+                  <label for="signup-height">Height (cm)</label>
+                  <div class="auth-input-wrap"><input type="number" id="signup-height" class="auth-input" placeholder="168" min="100" max="250"></div>
+                </div>
+                <div class="auth-field">
+                  <label for="signup-weight">Current Weight (kg)</label>
+                  <div class="auth-input-wrap"><input type="number" id="signup-weight" class="auth-input" placeholder="72.5" step="0.1"></div>
+                </div>
+                <div class="auth-field">
+                  <label for="signup-target">Target Weight (kg)</label>
+                  <div class="auth-input-wrap"><input type="number" id="signup-target" class="auth-input" placeholder="68.0" step="0.1"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="signup-error" class="auth-error-msg" style="display:none;"></div>
+
+          <button type="submit" class="btn btn-primary auth-submit-btn" id="btn-signup-submit">
+            <span>Create Account & Start Tracking</span>
+          </button>
+        </form>
+
+        <p class="auth-switch-text">Already have an account? <button class="auth-link-btn" id="goto-login-from-signup">Sign in here</button></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SCREEN 3: MAIN APP (post-login)
+════════════════════════════════════════════════════════════ -->
+<div id="screen-app" class="screen">
+  <div id="app" class="app-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">AuraHealth</span>
+          <span class="brand-subtitle">AI Longitudinal Review</span>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <button class="nav-item active" data-tab="tab-dashboard" id="nav-dashboard">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+          <span>Dashboard & Input</span>
+        </button>
+        <button class="nav-item" data-tab="tab-summaries" id="nav-summaries">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg>
+          <span>Deterministic Summaries</span>
+          <span class="badge badge-pulse hidden" id="missing-data-badge">!</span>
+        </button>
+        <button class="nav-item" data-tab="tab-ai-agent" id="nav-ai-agent">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+          <span>AI Review Agent</span>
+          <span class="badge" id="plan-pending-badge" style="display:none;">Plan</span>
+        </button>
+        <button class="nav-item" data-tab="tab-plans" id="nav-plans">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
+          <span>Versioned Plans & Goals</span>
+        </button>
+        <button class="nav-item" data-tab="tab-audit" id="nav-audit">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+          <span>Audit & System Logs</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-chip">
+          <div class="avatar" id="user-avatar-initials">?</div>
+          <div class="user-info">
+            <span class="user-name" id="profile-display-name">Loading…</span>
+            <span class="user-plan" id="active-plan-version-tag">Plan v1.0 Active</span>
+          </div>
+        </div>
+        <button class="logout-btn" id="btn-logout" title="Sign out">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+          Sign Out
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="top-header">
+        <div class="header-title">
+          <h1 id="page-title">Wellness Dashboard</h1>
+          <p id="page-subtitle">Track intake, sleep, activity &amp; mood with AI evidence-based reviews</p>
+        </div>
+        <div class="header-actions">
+          <button class="btn btn-secondary" id="btn-seed-data">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></svg>
+            <span>Load 14-Day Demo Data</span>
+          </button>
+          <button class="btn btn-primary" id="btn-quick-log">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+            <span>New Daily Entry</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- TABS -->
+      <section id="tab-dashboard" class="tab-page active">
+        <div class="dashboard-grid">
+          <div class="card glass-card span-col-7">
+            <div class="card-header">
+              <h3><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg> Record Daily Log</h3>
+              <div class="date-selector">
+                <label for="log-date">Date:</label>
+                <input type="date" id="log-date" class="form-control-sm">
+              </div>
+            </div>
+            <form id="daily-log-form" class="form-grid">
+              <div class="form-group full-width">
+                <label class="label-with-tooltip">
+                  <span>Meal Intake &amp; AI Estimator</span>
+                  <span class="tooltip-icon" title="Describe meals in plain text. AI will estimate calories and macros automatically.">?</span>
+                </label>
+                <div class="meal-input-row">
+                  <textarea id="meal-description" class="form-control" rows="2" placeholder="e.g. 2 eggs, sourdough toast, avocado, coffee with oat milk, grilled salmon bowl for lunch…"></textarea>
+                  <button type="button" class="btn btn-accent" id="btn-estimate-meal">Estimate with AI</button>
+                </div>
+                <div id="meal-estimation-box" class="estimation-box hidden">
+                  <div class="estimation-header">
+                    <span class="estimation-tag"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"/><path d="m17 5-9.5 7h5.5l-5 8"/></svg> AI Estimate</span>
+                    <span class="confidence-badge" id="ai-confidence">Confidence: 85%</span>
+                  </div>
+                  <div class="macro-inputs-grid">
+                    <div class="macro-field"><label>Calories (kcal)</label><input type="number" id="meal-calories" class="form-control" placeholder="0"></div>
+                    <div class="macro-field"><label>Protein (g)</label><input type="number" id="meal-protein" class="form-control" placeholder="0"></div>
+                    <div class="macro-field"><label>Carbs (g)</label><input type="number" id="meal-carbs" class="form-control" placeholder="0"></div>
+                    <div class="macro-field"><label>Fat (g)</label><input type="number" id="meal-fat" class="form-control" placeholder="0"></div>
+                  </div>
+                  <div class="correction-notice" id="correction-flag" style="display:none;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    <span>User override detected — original AI estimate recorded for quality audit.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group"><label for="input-weight">Weight (kg)</label><input type="number" step="0.1" id="input-weight" class="form-control" placeholder="72.5"></div>
+              <div class="form-group"><label for="input-sleep">Sleep Duration (hrs)</label><input type="number" step="0.1" id="input-sleep" class="form-control" placeholder="7.5"></div>
+              <div class="form-group"><label for="input-activity">Activity (mins)</label><input type="number" id="input-activity" class="form-control" placeholder="45"></div>
+              <div class="form-group">
+                <label for="input-mood">Energy / Mood Score (1–10)</label>
+                <div class="range-with-val">
+                  <input type="range" min="1" max="10" value="7" id="input-mood" class="form-range">
+                  <span id="mood-val" class="range-badge">7 / 10</span>
+                </div>
+              </div>
+              <div class="form-group full-width"><label for="input-notes">Daily Notes</label><input type="text" id="input-notes" class="form-control" placeholder="Stress, travel, workout notes…"></div>
+              <div class="form-actions full-width">
+                <button type="submit" class="btn btn-primary" id="btn-save-log">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                  <span>Save Log Entry</span>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div class="card glass-card span-col-5">
+            <div class="card-header">
+              <h3><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Active Wellness Plan</h3>
+              <span class="status-pill status-active" id="active-plan-status">v1.0 Active</span>
+            </div>
+            <div id="active-plan-details" class="plan-summary-box"></div>
+            <div class="stat-boxes-grid">
+              <div class="mini-stat"><span class="mini-label">Target Calories</span><span class="mini-value" id="target-calories-val">-- kcal</span></div>
+              <div class="mini-stat"><span class="mini-label">Sleep Goal</span><span class="mini-value" id="target-sleep-val">-- hrs</span></div>
+              <div class="mini-stat"><span class="mini-label">Activity Goal</span><span class="mini-value" id="target-activity-val">-- min/day</span></div>
+              <div class="mini-stat"><span class="mini-label">Weight Target</span><span class="mini-value" id="target-weight-val">-- kg</span></div>
+            </div>
+          </div>
+
+          <div class="card glass-card span-col-12">
+            <div class="card-header">
+              <h3><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg> Recent Recorded History</h3>
+              <span class="text-muted" id="total-logs-count">0 logs recorded</span>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead><tr><th>Date</th><th>Meals / Calories</th><th>Weight</th><th>Sleep</th><th>Activity</th><th>Mood</th><th>Data Quality</th><th>Actions</th></tr></thead>
+                <tbody id="recent-logs-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tab-summaries" class="tab-page">
+        <div class="dashboard-grid">
+          <div class="card glass-card span-col-12 flex-row-between">
+            <div class="filter-group">
+              <label>Period:</label>
+              <button class="btn btn-sm btn-secondary active" data-period="7">7 Days</button>
+              <button class="btn btn-sm btn-secondary" data-period="14">14 Days</button>
+              <button class="btn btn-sm btn-secondary" data-period="30">30 Days</button>
+            </div>
+            <div class="deterministic-tag">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              100% Deterministic Engine — Zero AI Hallucinations
+            </div>
+          </div>
+          <div id="quality-alerts-container" class="span-col-12"></div>
+          <div class="card glass-card span-col-3 stat-card"><span class="stat-title">Avg Daily Calories</span><span class="stat-number" id="summary-avg-calories">--</span><span class="stat-sub" id="summary-calorie-diff">-- vs target</span></div>
+          <div class="card glass-card span-col-3 stat-card"><span class="stat-title">Avg Sleep Duration</span><span class="stat-number" id="summary-avg-sleep">--</span><span class="stat-sub" id="summary-sleep-diff">-- vs goal</span></div>
+          <div class="card glass-card span-col-3 stat-card"><span class="stat-title">Weight Velocity</span><span class="stat-number" id="summary-weight-change">--</span><span class="stat-sub" id="summary-weight-velocity">-- kg/week</span></div>
+          <div class="card glass-card span-col-3 stat-card"><span class="stat-title">Logging Completeness</span><span class="stat-number" id="summary-completeness">--</span><span class="stat-sub" id="summary-missing-days">0 missing days</span></div>
+          <div class="card glass-card span-col-8"><div class="card-header"><h3>Calorie Intake vs Weight Trend</h3></div><div class="chart-wrapper"><canvas id="chart-calories-weight"></canvas></div></div>
+          <div class="card glass-card span-col-4"><div class="card-header"><h3>Sleep &amp; Energy Correlation</h3></div><div class="chart-wrapper"><canvas id="chart-sleep-mood"></canvas></div></div>
+        </div>
+      </section>
+
+      <section id="tab-ai-agent" class="tab-page">
+        <div class="dashboard-grid">
+          <div class="card glass-card span-col-12">
+            <div class="card-header">
+              <div>
+                <h3><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"/><path d="m17 5-9.5 7h5.5l-5 8"/></svg> Longitudinal AI Agent Reviewer</h3>
+                <p class="text-muted">Separates empirical facts from AI hypotheses. Consults curated scientific research.</p>
+              </div>
+              <button class="btn btn-primary" id="btn-run-ai-review">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/><path d="M10 8l6 4-6 4V8z"/></svg>
+                Generate Retrospective &amp; Plan Review
+              </button>
+            </div>
+          </div>
+          <div id="ai-review-output" class="span-col-12 flex-col gap-16">
+            <div class="card glass-card placeholder-box"><p class="text-muted">Click "Generate Retrospective" above, or ask the AI agent a question below.</p></div>
+          </div>
+          <div class="card glass-card span-col-12">
+            <div class="card-header">
+              <h3>Ask Follow-up or Request Plan Adjustment</h3>
+              <span class="safety-badge">Medical Guardrails Active</span>
+            </div>
+            <div class="chat-input-wrapper">
+              <input type="text" id="ai-user-query" class="form-control" placeholder="e.g. 'Why has my energy dropped?' or 'Suggest a calorie adjustment'">
+              <button class="btn btn-accent" id="btn-send-ai-query">Send</button>
+            </div>
+            <div class="quick-prompts">
+              <span class="quick-prompt-tag" data-prompt="Analyze how my sleep affected my mood score this week.">Sleep vs Mood</span>
+              <span class="quick-prompt-tag" data-prompt="Suggest a safer calorie deficit based on my weight velocity.">Suggest Deficit Plan</span>
+              <span class="quick-prompt-tag" data-prompt="Can you prescribe me medication for my low energy?">Test Medical Guardrail</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tab-plans" class="tab-page">
+        <div class="dashboard-grid">
+          <div class="card glass-card span-col-12 flex-row-between">
+            <div>
+              <h3>Versioned Goal &amp; Plan Stack</h3>
+              <p class="text-muted">All adjustments require your explicit confirmation. Previous versions are preserved.</p>
+            </div>
+            <button class="btn btn-secondary" id="btn-manual-new-plan">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+              New Manual Plan
+            </button>
+          </div>
+          <div id="pending-plan-card" class="span-col-12 hidden"></div>
+          <div class="card glass-card span-col-12">
+            <div class="card-header"><h3>Plan History Timeline</h3></div>
+            <div id="plan-history-timeline" class="timeline-container"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tab-audit" class="tab-page">
+        <div class="dashboard-grid">
+          <div class="card glass-card span-col-12 flex-row-between">
+            <div>
+              <h3>System Quality, AI Uncertainty &amp; Audit Logs</h3>
+              <p class="text-muted">Records user corrections, rejected recommendations, AI confidence scores &amp; guardrail violations.</p>
+            </div>
+            <button class="btn btn-sm btn-secondary" id="btn-clear-audit-logs">Clear Logs</button>
+          </div>
+          <div class="card glass-card span-col-12">
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead><tr><th>Timestamp</th><th>Category</th><th>Event Details</th><th>AI Confidence</th><th>Outcome</th></tr></thead>
+                <tbody id="audit-logs-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+<!-- ═══════════════════════════════════════════════════════════
+     GEMINI API KEY CONFIG MODAL
+════════════════════════════════════════════════════════════ -->
+<div id="modal-apikey" class="modal-overlay" style="display:none;">
+  <div class="modal-card">
+    <div class="modal-header">
+      <div class="modal-title-wrap">
+        <span class="modal-icon">✨</span>
+        <h3>Google Gemini API Configuration</h3>
+      </div>
+      <button class="modal-close-btn" id="btn-close-apikey-modal">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <p class="modal-desc">
+        AuraHealth connects directly to <strong>Google Gemini API (gemini-2.5-flash)</strong> for real-time meal macro estimation and longitudinal health agent reasoning.
+      </p>
+
+      <div class="modal-key-status" id="modal-key-status-box">
+        <div class="status-indicator-dot green" id="status-dot"></div>
+        <div class="status-info">
+          <div class="status-title" id="status-title-text">Gemini Engine Ready</div>
+          <div class="status-sub" id="status-sub-text">Using active system/env key or custom key</div>
+        </div>
+      </div>
+
+      <div class="modal-field">
+        <label for="input-gemini-api-key">Custom Google Gemini API Key (Optional):</label>
+        <input type="password" id="input-gemini-api-key" class="auth-input" placeholder="Paste AIzaSy... key here" autocomplete="off">
+        <div class="modal-field-note">Your key is stored strictly in your browser's local storage and used directly for Google Gemini API requests.</div>
+      </div>
+
+      <div id="apikey-feedback-msg" class="modal-feedback-msg" style="display:none;"></div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn btn-ghost" id="btn-clear-key">Remove Key</button>
+      <button class="btn btn-primary" id="btn-save-key">Save & Connect Gemini</button>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="./src/ui/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Environment and Secrets (CRITICAL: Do not commit API keys)
+.env
+.env.local
+.env.*.local
+
+# Build output
+dist/
+build/
+
+# IDE and OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
